@@ -11,6 +11,7 @@ namespace TRANSACTIONSURCHARGE
             Console.WriteLine("Kindly input the amount to transfer:");
             string res = Console.ReadLine();
             long value;
+
             if (long.TryParse(res, out value))
             {
                 if (value == 0)

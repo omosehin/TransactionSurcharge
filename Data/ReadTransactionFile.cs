@@ -14,11 +14,15 @@ namespace TRANSACTIONSURCHARGE
         }
         public TransferDetails CalculateFee()
         {
+            string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "Data\\transactionFile.Json");
             int charge = 0;
             long TotalAmount = 0;
             long TransferAmount = 0;
-
-            var fileJson = File.ReadAllText(@"C:\Users\ayobami.omosehin\Documents\TRANSACTIONSURCHARGE\Data\transactionFile.Json");
+            //var fileJson = File.ReadAllText(@"C:\Users\ayobami.omosehin\Documents\TRANSACTIONSURCHARGE\Data\transactionFile.Json");
+            string relativePath = "..\\Data\\transactionFile.Json";
+            string fullPathToFirstFile = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(relativePath), "transactionFile.Json"));
+            string output = fullPathToFirstFile.Replace("\\bin\\Debug", "");
+            var fileJson = File.ReadAllText(output);
             var readFile = JsonConvert.DeserializeObject<List<TransferFee>>(fileJson);
 
             foreach (var item in readFile)
