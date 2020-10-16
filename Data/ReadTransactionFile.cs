@@ -21,8 +21,8 @@ namespace TRANSACTIONSURCHARGE
             //var fileJson = File.ReadAllText(@"C:\Users\ayobami.omosehin\Documents\TRANSACTIONSURCHARGE\Data\transactionFile.Json");
             string relativePath = "..\\Data\\transactionFile.Json";
             string fullPathToFirstFile = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(relativePath), "transactionFile.Json"));
-            string output = fullPathToFirstFile.Replace("\\bin\\Debug", "");
-            var fileJson = File.ReadAllText(output);
+            string filePath = fullPathToFirstFile.Replace("\\bin\\Debug", "");
+            var fileJson = File.ReadAllText(filePath);
             var readFile = JsonConvert.DeserializeObject<List<TransferFee>>(fileJson);
 
             foreach (var item in readFile)
