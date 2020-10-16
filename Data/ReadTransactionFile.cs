@@ -14,7 +14,6 @@ namespace TRANSACTIONSURCHARGE
         }
         public TransferDetails CalculateFee()
         {
-            string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "Data\\transactionFile.Json");
             
             //var fileJson = File.ReadAllText(@"C:\Users\ayobami.omosehin\Documents\TRANSACTIONSURCHARGE\Data\transactionFile.Json");
             string relativePath = "..\\Data\\transactionFile.Json";
