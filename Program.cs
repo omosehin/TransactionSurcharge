@@ -13,8 +13,13 @@ namespace TRANSACTIONSURCHARGE
             long value;
             if (long.TryParse(res, out value))
             {
-                var inputedAmount = value;
-                var calculateTransaction = new ReadTransactionFile(inputedAmount);
+                if (value == 0)
+                {
+                    Console.WriteLine("You cannot transfer 0");
+                    return;
+                }
+
+                var calculateTransaction = new ReadTransactionFile(value);
                 var result = calculateTransaction.CalculateFee();
                 Console.WriteLine($"Amount {"\t"} {"\t"} Transfer Amount {"\t"}  Charge  {"\t"} Debit Amount {"\n"} N{String.Format("{0:n}", result.TotalTransfer)} {"\t"} N{String.Format("{0:n}", result.TransferAmount)} {"\t"} {"\t"} N{String.Format("{0:n}", result.TransferCharge)} {"\t"} N{String.Format("{0:n}", result.DebitAmount)}");
             }
